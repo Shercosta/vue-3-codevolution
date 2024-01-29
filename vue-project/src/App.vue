@@ -1,11 +1,26 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+// import HelloWorld from "./components/HelloWorld.vue";
+// import TheWelcome from "./components/TheWelcome.vue";
 </script>
 
 <template>
-  
+  <div>{{ greet }} {{ name }}</div>
+  <div v-text="channel"></div>
+  <div v-text="name"></div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      greet: "Hello",
+      name: "Batman",
+      channel: "Codevolution",
+    };
+  },
+};
+</script>
 
 <style scoped>
 header {
