@@ -5,8 +5,8 @@
 
 <template>
   <div>{{ greet }} {{ name }}</div>
-  <div v-text="channel"></div>
-  <div v-text="name"></div>
+  <div v-html="channel"></div>
+  <div v-html="hack"></div>
 </template>
 
 <script>
@@ -16,37 +16,20 @@ export default {
     return {
       greet: "Hello",
       name: "Batman",
-      channel: "Codevolution",
+      channel: "<b>Codevolution</b>",
+      hack: `<a href="#" onclick="alert('You have been hacked')"> win a prize! </a>`,
     };
   },
 };
 </script>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
