@@ -15,6 +15,9 @@
       <h2>Codwevolution</h2>
       <h2>Vue</h2>
     </template>
+
+    <h2 v-show="showElement">Using v-show</h2>
+    <h2 v-if="showElement">Using v-if</h2>
   </div>
 </template>
 
@@ -25,6 +28,7 @@ export default {
     return {
       num: "4",
       display: true,
+      showElement: false,
     };
   },
 };
