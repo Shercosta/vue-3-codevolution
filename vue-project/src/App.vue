@@ -5,38 +5,16 @@
 
 <template>
   <div>
-    <h2 :id="headingId">Heading</h2>
-    <button :disabled="isDisabled">Bind</button>
-    <h2 class="underline">Underlined Text</h2>
-    <h2 :class="status" class="underline">Status</h2>
-    <h2 :class="isPromoted && 'promoted'">Promoted Movie</h2>
-    <h2 :class="isSoldout ? 'sold-out' : 'new'">Soldout? movie</h2>
-    <h2 :class="['new', 'promoted']">Newly Promoted Movie</h2>
-    <h2 :class="[isPromoted && 'promoted', isSoldout ? 'sold-out' : 'new']">
-      array conditional Movie
-    </h2>
-    <h2
-      :class="{
-        promoted: isPromoted,
-        new: !isSoldout,
-        'sold-out': isSoldout,
-      }"
-    >
-      Object Conditioal Movie
-    </h2>
-    <h2
-      :style="{
-        color: highlightColor,
-        fontSize: headerSize + 'px',
-        padding: '20px',
-      }"
-    >
-      Inline Style
-    </h2>
-    <h2 :style="headerStyleObject">Style Object</h2>
+    <h2 v-if="num === 0">The number is zero</h2>
+    <h2 v-else-if="num < 0">The number is negative</h2>
+    <h2 v-else-if="num > 0">The number is positive</h2>
+    <h2 v-else>Not a number</h2>
 
-    <div :style="[baseStyleObject, successStyleObject]">Success Style</div>
-    <div :style="[baseStyleObject, dangerStyleObject]">Danger Style</div>
+    <template v-if="display">
+      <h2>Vishwas</h2>
+      <h2>Codwevolution</h2>
+      <h2>Vue</h2>
+    </template>
   </div>
 </template>
 
@@ -45,33 +23,8 @@ export default {
   name: "App",
   data() {
     return {
-      headingId: "heading",
-      isDisabled: false,
-      status: "danger",
-      isPromoted: true,
-      isSoldout: true,
-      highlightColor: "orange",
-      headerSize: 50,
-      headerStyleObject: {
-        color: "orange",
-        fontSize: "50px",
-        padding: "20px",
-      },
-      baseStyleObject: {
-        fontSize: "50px",
-        padding: "10px",
-      },
-      successStyleObject: {
-        color: "green",
-        backgroundColor: "lightgreen",
-        border: "1px solid green",
-        padding: "20px",
-      },
-      dangerStyleObject: {
-        color: "darkred",
-        backgroundColor: "red",
-        border: "1px solid darkred",
-      },
+      num: "4",
+      display: true,
     };
   },
 };
