@@ -1,10 +1,9 @@
 <template>
-  <template v-for="name in names" :key="name">
-    <h2>{{ name }}</h2>
-    <input placeholder="Last name" />
-    <hr />
-  </template>
-  <button @click="shuffle">Shuffle!</button>
+  <div>
+    <template v-for="name in names" :key="name">
+      <h2 v-if="name === 'Bruce'">{{ name }}</h2>
+    </template>
+  </div>
 </template>
 
 <script>
@@ -15,12 +14,6 @@ export default {
     return {
       names: ["Bruce", "Clark", "Diana", "Barry"],
     };
-  },
-  methods: {
-    shuffle() {
-      console.log(this.names);
-      this.names = _.shuffle(this.names);
-    },
   },
 };
 </script>
