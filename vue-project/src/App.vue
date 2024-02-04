@@ -1,19 +1,51 @@
 <template>
   <div>
-    <h2>{{ name }}</h2>
     <div>
-      <button @click="changeName($event), increment(1, $event)">
-        Change name
-      </button>
+      <pre>
+        {{ JSON.stringify(formValues, null, 2) }}
+      </pre>
     </div>
+    <form>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" v-model="formValues.name" />
+      </div>
 
-    <h2>{{ count }}</h2>
-    <div>
-      <button @click="increment(1, $event)">Increment 1</button>
-      <button @click="increment(5)">Increment 5</button>
-      <button @click="decrement(1)">Decrement 1</button>
-      <button @click="decrement(5)">Decrement 5</button>
-    </div>
+      <div>
+        <label for="profile">Profile Summary</label>
+        <textarea
+          name=""
+          id="profile"
+          v-model="formValues.profileSummary"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+
+      <div>
+        <label for="country">Country</label>
+        <select name="" id="country" v-model="formValues.country">
+          <option value="">Select a country</option>
+          <option value="india">india</option>
+          <option value="vietnam">vietnam</option>
+          <option value="singapore">singapore</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="job-location">Job Location</label>
+        <select
+          name=""
+          id="job-location"
+          multiple
+          v-model="formValues.jobLocation"
+        >
+          <option value="india">india</option>
+          <option value="vietnam">vietnam</option>
+          <option value="singapore">singapore</option>
+        </select>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -22,23 +54,15 @@ export default {
   name: "App",
   data() {
     return {
-      name: "Vishwas",
-      count: 0,
+      formValues: {
+        name: "",
+        profileSummary: "",
+        country: "",
+        jobLocation: [],
+      },
     };
   },
-  methods: {
-    changeName(event) {
-      this.name = "Batman";
-      console.log(event);
-    },
-    increment(num, event) {
-      this.count += num;
-      console.log(event);
-    },
-    decrement(num) {
-      this.count -= num;
-    },
-  },
+  methods: {},
 };
 </script>
 
