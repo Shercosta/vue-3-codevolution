@@ -5,7 +5,7 @@
         {{ JSON.stringify(formValues, null, 2) }}
       </pre>
     </div>
-    <form>
+    <form @submit="submitForm">
       <div>
         <label for="name">Name</label>
         <input type="text" id="name" v-model="formValues.name" />
@@ -45,6 +45,76 @@
           <option value="singapore">singapore</option>
         </select>
       </div>
+
+      <div>
+        <input
+          type="checkbox"
+          name=""
+          id="remoteWork"
+          v-model="formValues.remoteWork"
+          true-value="yes"
+          false-value="no"
+        />
+        <label for="remoteWork">Remote Work?</label>
+      </div>
+
+      <div>
+        <label for="">Skill Set</label>
+        <input
+          type="checkbox"
+          v-model="formValues.skillSet"
+          name=""
+          id="html"
+          value="html"
+        />
+        <label for="html">HTML</label>
+        <input
+          type="checkbox"
+          v-model="formValues.skillSet"
+          name=""
+          id="css"
+          value="css"
+        />
+        <label for="css">css</label>
+        <input
+          type="checkbox"
+          v-model="formValues.skillSet"
+          name=""
+          id="javascript"
+          value="javascript"
+        />
+        <label for="javascript">javascript</label>
+      </div>
+
+      <div>
+        <label for="">Years of Experience</label>
+        <input
+          type="radio"
+          v-model="formValues.yearsOfExperience"
+          name=""
+          id="0-2"
+          value="0-2"
+        />
+        <label for="0-2">0-2</label>
+        <input
+          type="radio"
+          v-model="formValues.yearsOfExperience"
+          name=""
+          id="3-5"
+          value="3-5"
+        />
+        <label for="3-5">3-5</label>
+        <input
+          type="radio"
+          v-model="formValues.yearsOfExperience"
+          name=""
+          id="6-10"
+          value="6-10"
+        />
+        <label for="6-10">6-10</label>
+      </div>
+
+      <button type="submit">Submit</button>
     </form>
   </div>
 </template>
@@ -59,10 +129,18 @@ export default {
         profileSummary: "",
         country: "",
         jobLocation: [],
+        remoteWork: "no",
+        skillSet: [],
+        yearsOfExperience: "",
       },
     };
   },
-  methods: {},
+  methods: {
+    submitForm(event) {
+      event.preventDefault();
+      console.log(this.formValues);
+    },
+  },
 };
 </script>
 
@@ -71,7 +149,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
 }
