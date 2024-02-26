@@ -5,5 +5,6 @@ import App from "./App.vue";
 import BonusDirectives from "./BonusDirectives.vue";
 import ComputedProperties from "./ComputedProperties.vue";
 import showImage from "./ShowImage.vue";
+import Watchers from "./Watchers.vue";
 
-createApp(ComputedProperties).mount("#app");
+createApp(Watchers).mount("#app");
