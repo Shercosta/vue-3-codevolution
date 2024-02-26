@@ -6,4 +6,4 @@ import BonusDirectives from "./BonusDirectives.vue";
 import ComputedProperties from "./ComputedProperties.vue";
 import showImage from "./ShowImage.vue";
 
-createApp(showImage).mount("#app");
+createApp(ComputedProperties).mount("#app");
